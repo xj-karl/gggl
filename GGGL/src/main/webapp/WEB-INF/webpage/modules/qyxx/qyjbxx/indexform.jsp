@@ -69,40 +69,7 @@
 								        {value:'4',text:'四级'}]
 						    " /></td>
 						</tr>
-						<!--  
 						<tr>
-							<td class="width-22 active"><label class="pull-right">物料风险等级：</label></td>
-							<td class="width-28"><input name="M41" class="easyui-combobox"
-								value="${qylist.m41 }" style="width:250px;height:30px;"
-								data-options="
-					panelHeight:80,editable:false ,data: [
-										{value:'A',text:'A'},
-								        {value:'B',text:'B'},
-								        {value:'C',text:'C'}]
-						    " /></td>
-							<td class="width-22 active"><label class="pull-right">工艺风险等级：</label></td>
-							<td class="width-28"><input name="M42" class="easyui-combobox"
-								value="${qylist.m42 }" style="width:250px;height:30px;"
-								data-options="
-					panelHeight:80,editable:false ,data: [
-										{value:'A',text:'A'},
-								        {value:'B',text:'B'},
-								        {value:'C',text:'C'}]
-						    " /></td>
-						</tr>
-						-->
-						<tr>
-						<!--  
-							<td class="width-22 active"><label class="pull-right">物料储量风险等级：</label></td>
-							<td class="width-28"><input name="M43" class="easyui-combobox"
-								value="${qylist.m43 }" style="width:250px;height:30px;"
-								data-options="
-					panelHeight:80,editable:false ,data: [
-										{value:'A',text:'A'},
-								        {value:'B',text:'B'},
-								        {value:'C',text:'C'}]
-						    " /></td>
-						-->
 							<td class="width-22 active"><label class="pull-right">企业风险等级：</label></td>
 							<td class="width-28"><input name="qyfxdjxs" class="easyui-combobox"
 								value="${qylist.m44 }" style="width:250px;height:30px;"
@@ -181,19 +148,6 @@
 										{value:'3',text:'三级'},
 										{value:'4',text:'达标'},
 										{value:'5',text:'未创建'}] " /></td>
-						</tr>
-						<tr>
-							<!-- 
-							<td class="width-22 active"><label class="pull-right">企业规模：</label></td>
-							<td class="width-28"><input name="M35" class="easyui-combobox"
-								value="${qylist.m35 }" style="width:250px;height:30px;"
-								data-options="
-								panelHeight:100,editable:false ,data: [
-										{value:'1',text:'微型'},
-										{value:'2',text:'小型'},
-										{value:'3',text:'中型'},
-										{value:'4',text:'大型'}] " /></td>
-							 -->
 						</tr>
 						<tr>
 							<td class="width-22 active"><label class="pull-right"><font color="red">*</font>安全机构设置情况：</label></td>
