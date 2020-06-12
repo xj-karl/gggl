@@ -1,9 +1,8 @@
 package com.cczu.model.sghg.controller;
 
-import com.cczu.model.sghg.entity.TMESK_MsdsEntity;
-import com.cczu.model.sghg.service.SekbMsdsService;
+import com.cczu.model.sghg.entity.TMESK_ChemicalsdirectoryEntity;
+import com.cczu.model.sghg.service.SekbWhpaqxxService;
 import com.cczu.sys.comm.controller.BaseController;
-import com.cczu.sys.comm.mapper.JsonMapper;
 import com.cczu.sys.system.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,23 +15,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
- * Msds信息controller
+ * 危化品安全信息controller
  * 
  * @author jason
  * @date 2017年7月1日
  */
 @Controller
-@RequestMapping("sekb/msds")
-public class PageSekbMsdsController extends BaseController {
+@RequestMapping("sekb/whpaqxx")
+public class PageSekbWhpaqxxController extends BaseController {
 
 	@Autowired
 	private RoleService roleService;
 	@Autowired
-	private SekbMsdsService sekbMsdsService;
+	private SekbWhpaqxxService sekbWhpaqxxService;
 
 	/**
 	 * 列表显示页面
@@ -42,7 +40,7 @@ public class PageSekbMsdsController extends BaseController {
 	@RequestMapping(value = "index")
 	public String index(Model model) {
 
-		return "sghg/msds/index";
+		return "sghg/whpaqxx/index";
 	}
 
 	/**
@@ -55,10 +53,12 @@ public class PageSekbMsdsController extends BaseController {
 	public Map<String, Object> getData(HttpServletRequest request) {
 
 		Map<String, Object> map = getPageMap(request);
-		map.put("zwname", request.getParameter("sekb_msds_zw_name"));
-		map.put("zwname2", request.getParameter("sekb_msds_zw_name2"));
+		map.put("pname", request.getParameter("sekb_whpaqxx_p_name"));
+		map.put("cas", request.getParameter("cas"));
+		map.put("whpm6", request.getParameter("whpm6"));
+		map.put("jdp", request.getParameter("jdp"));
 
-		return sekbMsdsService.dataGrid(map);
+		return sekbWhpaqxxService.dataGrid(map);
 
 	}
 	
@@ -70,13 +70,12 @@ public class PageSekbMsdsController extends BaseController {
 	public String view(@PathVariable("id") Integer id, Model model) {
 		//查询选择的产品信息
 		long id1 = id;
-		TMESK_MsdsEntity tm = sekbMsdsService.findById(id1);
-		model.addAttribute("res", tm);
+		TMESK_ChemicalsdirectoryEntity tc = sekbWhpaqxxService.findById(id1);
+		model.addAttribute("res", tc);
 		//返回页面
 		model.addAttribute("action", "view");
-		return "sghg/msds/view";
+		return "sghg/whpaqxx/view";
 	}
-	
 	
 	/**
 	 * 导出Excel
@@ -87,11 +86,11 @@ public class PageSekbMsdsController extends BaseController {
 	@ResponseBody
 	public void getExcel(HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("zwname", request.getParameter("sekb_msds_zw_name"));
-		map.put("zwname2", request.getParameter("sekb_msds_zw_name2"));
+		map.put("pname", request.getParameter("excelcon1"));
+		map.put("cas", request.getParameter("excelcon2"));
 		map.put("colval", request.getParameter("colval"));
 		map.put("coltext", request.getParameter("coltext"));
-		sekbMsdsService.exportExcel(response, map);
+		sekbWhpaqxxService.exportExcel(response, map);
 		
 	}
 	
@@ -101,24 +100,7 @@ public class PageSekbMsdsController extends BaseController {
 	 */
 	@RequestMapping(value = "colindex", method = RequestMethod.GET)
 	public String colindex(Model model) {
-		model.addAttribute("url","sekb/msds/excel");
+		model.addAttribute("url","sekb/whpaqxx/excel");
 		return "common/formexcel";
-	}
-	
-	
-	@RequestMapping(value="json")
-	@ResponseBody
-	public String getDataJson( HttpServletRequest request) {
-		List<TMESK_MsdsEntity> list=sekbMsdsService.findByWzName(request.getParameter("name"));
-		if(list!=null&&list.size()>0)
-			return JsonMapper.getInstance().toJson(list.get(0));
-		else{
-			Map<String, Object> map=new HashMap<>();
-			map.put("m1", "");
-			map.put("m10", "");
-			map.put("m20", "");
-			return JsonMapper.getInstance().toJson(map);
-		}
-		
 	}
 }
