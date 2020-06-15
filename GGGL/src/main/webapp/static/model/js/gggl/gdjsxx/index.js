@@ -20,12 +20,14 @@ $(function () {
             {field: 'id', title: 'id', checkbox: true, width: 50, align: 'center'},
             {field: 'number', title: '管道编号', sortable: false, width: 100, align: 'center'},
             {field: 'name', title: '管道名称', sortable: false, width: 100, align: 'center'},
-            {field: 'pipeDiameter', title: '管径(/mm)', sortable: false, width: 100, align: 'center'},
+            {field: 'pipe_diameter', title: '管径(/mm)', sortable: false, width: 100, align: 'center'},
+            {field: 'thickness', title: '壁厚', sortable: false, width: 100, align: 'center'},
             {field: 'material', title: '材质', sortable: false, width: 100, align: 'center'},
-            {field: 'conveyingMedium', title: '输送介质', sortable: false, width: 100, align: 'center'},
+            {field: 'conveying_medium', title: '输送介质', sortable: false, width: 100, align: 'center'},
             {field: 'temperature', title: '温度(℃)', sortable: false, width: 100, align: 'center'},
             {field: 'pressure', title: '压力(/Mpa)', sortable: false, width: 100, align: 'center'},
             {field: 'flow', title: '流量(kg/s)', sortable: false, width: 100, align: 'center'},
+            {field: 'fwqy_name', title: '公司', sortable: false, width: 100, align: 'center'},
 
         ]],
         onDblClickRow: function (rowdata, rowindex, rowDomElement) {

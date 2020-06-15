@@ -1,6 +1,8 @@
 package com.cczu.model.gggl.controller;
 
+import com.cczu.model.gggl.entity.BIS_FwqyxxEntity;
 import com.cczu.model.gggl.entity.BIS_GdsjxxEntity;
+import com.cczu.model.gggl.service.BisFwqyxxService;
 import com.cczu.model.gggl.service.BisGdjsxxService;
 import com.cczu.sys.comm.controller.BaseController;
 import com.cczu.sys.system.service.ShiroRealm;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -24,6 +27,8 @@ import java.util.Map;
 public class PageBisGdsjxxController extends BaseController {
 
   @Autowired private BisGdjsxxService bisGdjsxxService;
+
+  @Autowired private BisFwqyxxService bisFwqyxxService;
 
   /*
    * @Description      : 管道数据信息--index页面
@@ -67,19 +72,41 @@ public class PageBisGdsjxxController extends BaseController {
     return "gggl/gdsjxx/form";
   }
 
-  /**
-   * 添加信息
-   *
-   * @param model
-   */
+  /*
+   * @Description      : 添加管道信息
+   * @Author           : WangMeng
+   * @Date             : 2020-06-15 22:01
+   * @Param            : [entity, model]
+   * @Return           : java.lang.String
+   **/
   @RequestMapping(value = "create")
   @ResponseBody
-  public String create(BIS_GdsjxxEntity entity, Model model) {
+  public String create(BIS_GdsjxxEntity entity, HttpServletRequest request) {
     ShiroRealm.ShiroUser sessionuser = UserUtil.getCurrentShiroUser();
     String datasuccess = "success";
+    entity.setId2(Long.parseLong(request.getParameter("id2")));
+    if (request.getParameter("id2") != null && request.getParameter("id2") != "") {
+      BIS_FwqyxxEntity fwqyxxEntity =
+          bisFwqyxxService.findById(Long.parseLong(request.getParameter("id2")));
+      entity.setFwqyName(fwqyxxEntity.getM1());
+    }
     entity.setId1(sessionuser.getQyid());
     bisGdjsxxService.addInfo(entity);
     // 返回结果
     return datasuccess;
+  }
+
+  /*
+   * @Description      : 查询企业数据 id text
+   * @Author           : WangMeng
+   * @Date             : 2020-06-15 22:03
+   * @Param            : [request]
+   * @Return           : java.lang.String
+   **/
+  @RequestMapping(value = "/qyjson")
+  @ResponseBody
+  public String qyjson(HttpServletRequest request) {
+    Map<String, Object> map = new HashMap<String, Object>();
+    return bisFwqyxxService.getQyIdjson(map);
   }
 }

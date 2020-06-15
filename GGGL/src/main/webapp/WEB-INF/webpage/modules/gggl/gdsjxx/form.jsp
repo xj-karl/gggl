@@ -12,53 +12,58 @@
         <tbody>
         <tr>
             <td class="width-30 active"><label class="pull-right">管道编号：</label></td>
-            <td class="width-70"><input name="number" style="width: 100%;height: 30px;" class="easyui-textbox"
+            <td class="width-50"><input name="number" style="width: 50%;height: 30px;" class="easyui-textbox"
                                         value="${entity.number }"
                                         data-options="required:true,validType:'length[0,250]'"/></td>
-        </tr>
-        <tr>
             <td class="width-30 active"><label class="pull-right">管道名称：</label></td>
-            <td class="width-70"><input name="name" class="easyui-textbox" style="width: 100%;height: 30px;"
+            <td class="width-50"><input name="name" class="easyui-textbox" style="width: 100%;height: 30px;"
                                         value="${entity.name }"
                                         data-options="required:true,validType:'length[0,250]'"/></td>
         </tr>
+
         <tr>
             <td class="width-30 active"><label class="pull-right">管径(/mm)：</label></td>
-            <td class="width-70"><input name="pipeDiameter" class="easyui-textbox" style="width: 100%;height: 30px;"
+            <td class="width-50"><input name="pipeDiameter" class="easyui-textbox" style="width: 50%;height: 30px;"
                                         value="${entity.pipeDiameter }"
+                                        data-options="required:true,validType:'length[0,50]'"/></td>
+            <td class="width-30 active"><label class="pull-right">壁厚：</label></td>
+            <td class="width-50"><input name="thickness" class="easyui-textbox" style="width: 100%;height: 30px;"
+                                        value="${entity.thickness}"
                                         data-options="required:true,validType:'length[0,50]'"/></td>
         </tr>
         <tr>
             <td class="width-30 active"><label class="pull-right">材质：</label></td>
-            <td class="width-70"><input name="material" class="easyui-textbox" style="width: 100%;height: 30px;"
+            <td class="width-50"><input name="material" class="easyui-combobox" style="width: 50%;height: 30px;"
                                         value="${entity.material }"
-                                        data-options="required:true,validType:'length[0,250]'"/></td>
-        </tr>
-        <tr>
+                                        data-options="required:'true',panelHeight:200,editable:false ,valueField: 'id',textField: 'text',url:'${ctx}/tcode/dict/cz' "/>
+            </td>
             <td class="width-30 active"><label class="pull-right">输送介质：</label></td>
-            <td class="width-70"><input name="conveyingMedium" class="easyui-textbox" style="width: 100%;height: 30px;"
+            <td class="width-50"><input name="conveyingMedium" class="easyui-combobox" style="width: 100%;height: 30px;"
                                         value="${entity.conveyingMedium }"
-                                        data-options="required:true,validType:'length[0,250]'"/></td>
+                                        data-options="required:'true',panelHeight:200,editable:false ,valueField: 'id',textField: 'text',url:'${ctx}/tcode/dict/ssjz' "/>
+            </td>
         </tr>
         <tr>
             <td class="width-30 active"><label class="pull-right">温度(℃)：</label></td>
-            <td class="width-70"><input name="temperature" class="easyui-textbox" style="width: 100%;height: 30px;"
+            <td class="width-50"><input name="temperature" class="easyui-textbox" style="width: 50%;height: 30px;"
                                         value="${entity.temperature }"
                                         data-options="required:true,validType:'length[0,250]'"/></td>
-        </tr>
-        <tr>
             <td class="width-30 active"><label class="pull-right">压力(/Mpa)：</label></td>
-            <td class="width-70"><input name="pressure" class="easyui-textbox" style="width: 100%;height: 30px;"
+            <td class="width-50"><input name="pressure" class="easyui-textbox" style="width: 100%;height: 30px;"
                                         value="${entity.pressure }"
                                         data-options="required:true,validType:'length[0,250]'"/></td>
         </tr>
         <tr>
             <td class="width-30 active"><label class="pull-right">流量(kg/s)：</label></td>
-            <td class="width-70"><input name="flow" class="easyui-textbox" style="width: 100%;height: 30px;"
+            <td class="width-50"><input name="flow" class="easyui-textbox" style="width: 50%;height: 30px;"
                                         value="${entity.flow }"
                                         data-options="required:true,validType:'length[0,250]'"/></td>
+            <td class="width-30 active"><label class="pull-right">公司：</label></td>
+            <td class="width-50"><input name="id2" class="easyui-combobox" style="width: 100%;height: 30px;"
+                                        value="${entity.id2}"
+                                        data-options="required:'true',panelHeight:200,editable:false ,valueField: 'id',textField: 'text',url:'${ctx}/gggl/gdsjxx/qyjson' "/>
+            </td>
         </tr>
-
         <c:if test="${not empty entity.ID}">
             <input type="hidden" name="ID" value="${entity.ID}"/>
         </c:if>

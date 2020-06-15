@@ -21,6 +21,16 @@ public class BIS_GdsjxxEntity extends BaseEntity {
   @Getter
   private Long id1; // 企业id
 
+  @Column(name = "id2", nullable = true, columnDefinition = "bigint")
+  @Setter
+  @Getter
+  private Long id2; // 服务企业id
+
+  @Column(name = "fwqyName", nullable = true, columnDefinition = "varchar(200)")
+  @Setter
+  @Getter
+  private String fwqyName; // 服务企业名字
+
   @Column(name = "number", nullable = true, columnDefinition = "varchar(200)")
   @Setter
   @Getter
@@ -40,6 +50,11 @@ public class BIS_GdsjxxEntity extends BaseEntity {
   @Setter
   @Getter
   private String material; // 材质
+
+  @Column(name = "thickness", nullable = true, columnDefinition = "varchar(200)")
+  @Setter
+  @Getter
+  private String thickness; // 壁厚
 
   @Column(name = "conveyingMedium", nullable = true, columnDefinition = "varchar(200)")
   @Setter
