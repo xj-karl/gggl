@@ -10,7 +10,8 @@
 <div id="tb" style="padding:5px;height:auto">
     <div>
         <form id="searchFrom" style="margin-bottom: 8px;" action="" class="form-inline">
-            <input class="easyui-textbox" name="m1" style="height: 30px;" data-options="editable:true,prompt: '管道名称' "/>
+            <input class="easyui-textbox" name="name" style="height: 30px;"
+                   data-options="editable:true,prompt: '管道名称' "/>
             <span class="btn btn-primary btn-rounded btn-outline btn-sm " onclick="search()"><i
                     class="fa fa-search"></i> 查询</span>
             <span class="btn btn-primary btn-rounded btn-outline btn-sm " onclick="clearA()"><i
