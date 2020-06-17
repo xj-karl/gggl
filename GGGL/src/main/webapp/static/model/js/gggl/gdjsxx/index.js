@@ -99,7 +99,7 @@ function upd() {
         layer.msg("请选择一行记录！", {time: 1000});
         return;
     }
-    openDialog("修改服务企业信息", ctx + "/gggl/gdsjxx/update/" + row.id, "550px", "300px", "");
+    openDialog("修改服务企业信息", ctx + "/gggl/gdsjxx/update/" + row.id, "800px", "500px", "");
 }
 
 //查看
@@ -109,5 +109,5 @@ function view() {
         layer.msg("请选择一行记录！", {time: 1000});
         return;
     }
-    openDialogView("查看服务企业信息", ctx + "/gggl/gdsjxx/view/" + row.id, "550px", "300px", "");
+    openDialogView("查看服务企业信息", ctx + "/gggl/gdsjxx/view/" + row.id, "800px", "500px", "");
 }

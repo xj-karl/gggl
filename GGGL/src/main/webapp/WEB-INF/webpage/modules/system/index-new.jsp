@@ -35,9 +35,9 @@
             <div class="user-info">
                 <a href="javascript:;" title="个人档案" class="user-avatar"><span></span></a>
                 <span class="user-name"><shiro:principal property="name"/>，欢迎您</span>
-            
+
             </div>
-            
+
         </div>
         <div class="hd-bottom">
             <div style="height:10px"></div>
@@ -70,16 +70,16 @@
         	<div class="title">
                 <i class="sidebar-show"></i>
                 <ul class="tab ue-clear">
-                   
+
                 </ul>
                 <i class="tab-more"></i>
                 <i class="tab-close"></i>
             </div>
             <div class="content">
             </div>
-        </div> 
+        </div>
     </div>
-    
+
     <div id="ft" class="ue-clear">
     	<div class="ft1 ue-clear">
         	<i class="ft-icon1"></i>
@@ -128,19 +128,19 @@ $(function(){
 	$("#bd").height($(window).height()-$("#hd").outerHeight()-35);
 	//指定菜单，缺少导致无法展开左侧菜单
 	var menu = new Menu({
-		defaultSelect: $('.nav2').find('li[data-id="1"]')	
+		defaultSelect: $('.nav2').find('li[data-id="1"]')
 	});
-	
+
 	$(window).resize(function(e) {
 	    $("#bd").height($(window).height()-$("#hd").outerHeight()-35);
 	});
 
 	msgtx();
-	
+
 	$.ajax({
         type:"POST",
         url:"${ctx}/system/permission/i/menujson",
-        dataType: 'json', 
+        dataType: 'json',
         success:function(data){
             Gdata = data;
         	showMenu();
@@ -150,37 +150,37 @@ $(function(){
 
 	/*$.each($('.skin-opt li'),function(index, element){
 		if((index + 1) % 3 == 0){
-			$(this).addClass('third');	
+			$(this).addClass('third');
 		}
 		$(this).css('background',$(this).attr('attr-color'));
 	});*/
-	
+
 	$('.setting-skin').click(function(e) {
         /*$('.skin-opt').toggle();*/
         openDialog("消息查看","${ctx}/new/message/index");
         msgtx();
     });
-	
+
 	//离开隐藏控件
     /*$(".skin-opt").hover(function(){
     },function(){
 	 	$('.skin-opt').toggle();
     });
-	
+
 	$('.skin-opt').click(function(e) {
         if($(e.target).is('li')){
-			alert($(e.target).attr('attr-color'));	
+			alert($(e.target).attr('attr-color'));
 		}
     });*/
-	
+
 	$('.user-info').click(function(e) {
-       $(this).toggleClass('active'); 
+       $(this).toggleClass('active');
 	   $('.user-opt').toggle();
     });
-	
+
 	hideElement($('.user-opt'), function(current, target){
 	});
-	
+
 });
 
 //消息提醒
@@ -205,21 +205,21 @@ function showMenu(){
 	$.each(Gdata, function(i, item) {
 		var li="";
 		html+='<li><a href="javascript:void(0);" id="'+item.id+'"><img src="${ctxStatic}/model/main/images/'+item.icon+'"/>'+item.name+'</a></li>';
-	});		
+	});
 	$('#menulist').append(html);
 	var totalWidth = 0, current = 1;
-	
+
 	//根据 横向一级导航栏 计算宽度
 	$.each($('.nav').find('li'), function(){
 		totalWidth += $(this).outerWidth();
 	});
-	
+
 	$('.nav').width(totalWidth+500);
-	
+
 	function currentLeft(){
 		return -(current - 1) * 120;
 	}
-	
+
 	//横向一级导航栏 最右方按钮点击 图标移动距离
 	$('.nav-btn a').click(function(e) {
 		var tempWidth = totalWidth - ( Math.abs($('.nav').css('left').split('p')[0]) + $('.nav-wrap').width() );
@@ -279,7 +279,7 @@ function showMenu(){
 			}
 	    }
 	    /* if($(".nav li a").eq(0).attr("class")=='active'){
-	    	
+
 	    } */
 	});
 	//首次进入默认激活第一个标签
