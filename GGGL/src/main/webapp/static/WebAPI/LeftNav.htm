@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title>目录树</title>
+    <link rel="StyleSheet" href="dtree.css" type="text/css" />
+	<script type="text/javascript" src="Andtree.js"></script>
+    <style type="text/css">
+    *
+    {
+	    margin:0px;
+	    padding:0px;
+	    font-size:12px;	
+	 }
+    body
+    {
+	    width:100%;
+	    height:100%;
+	    position:absolute;
+	    left:0px;
+	    bottom:0px;
+	    border-width:1px;
+	    background-color:#ffffff;
+    }
+     #handle {
+	    width:100%;
+        background-image:url("../images/cccc.png");
+	 }
+	 </style>
+	 <script type="text/javascript">
+	    function BT(){
+	       var ojb = document.getElementById("TreeView");
+	       BuildTree(ojb);
+	    }
+	    function HideThis() {
+	        parent.document.getElementById("_leftNav").style.display="none";
+	        parent.document.getElementById("panel").style.display="block";
+	    }
+	 </script>
+</head>
+
+<body style="left: 0px; top: 0px; width:100%; height:100%;">
+<div id="handle" >
+    <table style=" width:100%;border-style:none;">
+       <tr >
+          <td id="picturePos" style="width:100%" align="left">
+                <a href="javascript:HideThis();" target="_self" style=" left:0px;"><img  alt="隐藏" src="../images/right.png" style=" border-style:none;" /></a>
+           </td>
+       </tr>
+    </table>
+</div>
+<div id="TreeContent" style="overflow:auto; background-color: #FFFFFF;width:100%;height:100%;">
+         <!--<p><a href="javascript: mTree.openAll();">全部展开</a> | <a href="javascript: mTree.closeAll();">全部收回</a></p>-->
+         <div id="TreeView" class="dtree" style="width:100%;height:100%; overflow:scroll;">
+            <script type="text/javascript">
+                BT();
+        </script>
+         </div>
+    </div>
+</body>
+
+</html>

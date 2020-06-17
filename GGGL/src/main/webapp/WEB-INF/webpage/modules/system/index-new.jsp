@@ -198,13 +198,6 @@ function msgtx(){
         }
         $("#msgtotal").text(msgtotal);
     });*/
-    $.post("${ctx}/new/message/messageNum",function(data){
-        var msgtotal = data;
-        if(msgtotal>99){
-            msgtotal = '...';
-        }
-        $("#msgtotal").text(msgtotal);
-    });
 }
 
 //横向一级导航栏拼接显示
@@ -254,22 +247,28 @@ function showMenu(){
 		$(".nav2").empty();
 	    var id  = $(this).attr("id");
 	    var html='';//父节点html
-	    for(var item of Gdata){
-			if(item.id==id){
-				var childs = item.children;
+        for(var i=0; i<Gdata.length; i++){
+	    //for(var item of Gdata){
+            if(Gdata[i].id==id){
+			//if(item.id==id){
+				var childs = Gdata[i].children;
 			    if(childs&&childs.length>0){
 					//var f= true;
-      				for(var subitem of childs){//二级菜单循环
-      						if(subitem.children&&subitem.children.length>0){//存在三级菜单
-	      						html+='<li class="nav-li"><a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">'+subitem.name+'</span></a>';
+                    for(var j=0; j<childs.length; j++){
+      				//for(var subitem of childs){//二级菜单循环
+                            if(childs[j].children&&childs[j].children.length>0) {
+      						//if(subitem.children&&subitem.children.length>0){//存在三级菜单
+	      						html+='<li class="nav-li"><a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">'+childs[j].name+'</span></a>';
       							//三级菜单
       							html+='<ul class="subnav">';
-         						for(ssubitem of subitem.children){
-         						    html+='<li class="subnav-li" data-id="'+ssubitem.id+'" href="${ctx }/'+ssubitem.href+'"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">'+ssubitem.name+'</span></a></li>';
+                                var cchilds = childs[j].children;
+                                for(var m=0; m<cchilds.length; m++) {
+         						//for(var ssubitem of subitem.children){
+         						    html+='<li class="subnav-li" data-id="'+cchilds[m].id+'" href="${ctx }/'+cchilds[m].href+'"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">'+cchilds[m].name+'</span></a></li>';
          						}
          						html+='</ul>';
       						}else{//不存在三级菜单
-      							html+='<li class="nav-li" data-id="'+subitem.id+'" href="${ctx }/'+subitem.href+'"><a href="javascript:;" class="ue-clear"><span class="nav-text" style="margin-left:33px;">'+subitem.name+'</span></a>';
+      							html+='<li class="nav-li" data-id="'+childs[j].id+'" href="${ctx }/'+childs[j].href+'"><a href="javascript:;" class="ue-clear"><span class="nav-text" style="margin-left:33px;">'+childs[j].name+'</span></a>';
       						}
       						//f=false;
       						html+='</li>';
