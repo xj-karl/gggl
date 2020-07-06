@@ -8,6 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName BisGljsxxService @Author wangmeng @Description 管廊数据信息--数据服务层 @Data 2020-06-12
@@ -32,6 +35,15 @@ public class BisGljsxxService {
     entity.setS2(t);
     entity.setS3(0);
     bisGlsjxxDao.save(entity);
+  }
+
+  public Map<String, Object> dataGrid(Map<String, Object> mapData) {
+    List<Map<String, Object>> list = bisGlsjxxDao.dataGrid(mapData);
+    int getTotalCount = bisGlsjxxDao.getTotalCount(mapData);
+    Map<String, Object> map = new HashMap<String, Object>();
+    map.put("rows", list);
+    map.put("total", getTotalCount);
+    return map;
   }
 
   /*
