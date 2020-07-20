@@ -5,7 +5,7 @@ $(function() {
     }) 
 	
 	$("#loginBtn").click(function() {
-		console.log("login");
+		/*console.log("login");*/
 		var username = $("input[name=username]").val();
 		var password = $("input[name=password]").val();//hex_md5( hex_md5($("input[name=password]").val()) );
 		var yzmpassword = $("input[name=yzmpassword]").val();

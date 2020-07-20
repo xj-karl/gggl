@@ -30,7 +30,7 @@
 var qyid;
 $(function(){
 	qyid= $("#qyid").val();
-	console.log(qyid);
+	/*console.log(qyid);*/
 	$('#tt').tabs({
 		onSelect: function(title,index){
 			//$("#div01").html()="<td>test</td>";

@@ -3,7 +3,7 @@
 <meta http-equiv="Expires" content="0"><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Cache-Control" content="no-store">
 <!-- 引入jquery插件 -->
 <script src="${ctxStatic}/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
-<script src="${ctxStatic}/jquery/jquery-migrate-1.1.1.min.js" type="text/javascript"></script>
+<%--<script src="${ctxStatic}/jquery/jquery-migrate-1.1.1.min.js" type="text/javascript"></script>--%>
 
 
 
