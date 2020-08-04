@@ -2,7 +2,7 @@ var dg;
 $(function () {
     dg = $('#dg').datagrid({
         method: "post",
-        url: ctx + '/gggl/fwqyxx/list',
+        url: ctx + '/gggl/glsjxx/list',
         fit: true,
         fitColumns: true,
         border: false,
@@ -18,10 +18,10 @@ $(function () {
         singleSelect: true,
         columns: [[
             {field: 'id', title: 'id', checkbox: true, width: 50, align: 'center'},
-            {field: 'm1', title: '公司名称', sortable: false, width: 150},
-            {field: 'm2', title: '地址', sortable: false, width: 150, align: 'center'},
-            {field: 'm3', title: '安全负责人', sortable: false, width: 100, align: 'center'},
-            {field: 'm4', title: '安全员电话', sortable: false, width: 100, align: 'center'}
+            {field: 'name', title: '管廊名称', sortable: false, width: 150},
+            {field: 'startCoordinate', title: '起始坐标', sortable: false, width: 150, align: 'center'},
+            {field: 'endCoordinate', title: '终点坐标', sortable: false, width: 100, align: 'center'},
+            {field: 'remark', title: '备注', sortable: false, width: 100, align: 'center'}
         ]],
         onDblClickRow: function (rowdata, rowindex, rowDomElement) {
             view();
@@ -50,7 +50,7 @@ function clearA() {
 
 //增加
 function add() {
-    openDialog("添加服务企业信息", ctx + "/gggl/fwqyxx/create", "550px", "300px", "");
+    openDialog("添加服务企业信息", ctx + "/gggl/gljsxx/create", "550px", "300px", "");
 }
 
 //删除
@@ -72,7 +72,7 @@ function del() {
     top.layer.confirm('删除后无法恢复您确定要删除？', {icon: 3, title: '提示'}, function (index) {
         $.ajax({
             type: 'get',
-            url: ctx + "/gggl/fwqyxx/delete/" + ids,
+            url: ctx + "/gggl/gljsxx/delete/" + ids,
             success: function (data) {
                 layer.alert(data, {icon: 1, offset: 'rb', shade: 0, time: 2000});
                 top.layer.close(index);
@@ -92,7 +92,7 @@ function upd() {
         layer.msg("请选择一行记录！", {time: 1000});
         return;
     }
-    openDialog("修改服务企业信息", ctx + "/gggl/fwqyxx/update/" + row.id, "550px", "300px", "");
+    openDialog("修改服务企业信息", ctx + "/gggl/gljsxx/update/" + row.id, "550px", "300px", "");
 }
 
 //查看
@@ -102,5 +102,5 @@ function view() {
         layer.msg("请选择一行记录！", {time: 1000});
         return;
     }
-    openDialogView("查看服务企业信息", ctx + "/gggl/fwqyxx/view/" + row.id, "550px", "300px", "");
+    openDialogView("查看服务企业信息", ctx + "/gggl/gljsxx/view/" + row.id, "550px", "300px", "");
 }

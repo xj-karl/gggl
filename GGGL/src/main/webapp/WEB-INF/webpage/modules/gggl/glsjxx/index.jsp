@@ -4,11 +4,7 @@
 <head>
     <title>管廊数据信息</title>
     <meta name="decorator" content="default"/>
-    <script type="text/javascript" src="${ctx}/static/model/js/gggl/gljsxx/index.js?v=1.0"></script>
-    <script type="text/javascript">
-        var ctx = '${ctx}';
-        var usertype = '${usertype}';
-    </script>
+    <script type="text/javascript" src="${ctx}/static/model/js/gggl/glsjxx/index.js?v=1.0"></script>
 </head>
 <body>
 <div id="tb" style="padding:5px;height:auto">
