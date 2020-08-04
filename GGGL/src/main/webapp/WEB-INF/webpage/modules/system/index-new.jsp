@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="${ctxStatic}/model/css/index/style.css" />
 <link rel="stylesheet" type="text/css" href="${ctxStatic}/model/css/index/main.css" />
@@ -296,10 +296,10 @@ function openDialog(title,url){
 	});
 }
 function logout(){
-    layer.confirm('你确定要退出系统？', {icon: 3, title:'提示'}, function(index){
+    window.location.href="${ctx}/a/logout";
+    /*layer.confirm('你确定要退出系统？', {icon: 3, title:'提示'}, function(index){
 	  layer.close(index);
-	  window.location.href="${ctx}/a/logout";
-	});
+	});*/
 }
 
 //屏幕改变事件

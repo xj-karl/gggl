@@ -1,16 +1,13 @@
-﻿<%@ page contentType="text/html;charset=UTF-8"%>
-<%@ include file="/WEB-INF/webpage/include/taglib.jsp"%>
+﻿<%@ page contentType="text/html;charset=UTF-8" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>首页</title>
-	<meta name="decorator" content="default" />
-	<link rel="StyleSheet" href="${ctx}/static/WebAPI/dtree.css" type="text/css" />
-	<script type="text/javascript" src="${ctx}/static/WebAPI/Andtree.js"></script>
-	<script type="text/javascript" src="${ctx}/static/WebAPI/ajax.js"></script>
-	<script type="text/javascript" src="${ctx}/static/WebAPI/json2.js"></script>
-    <script type="text/javascript" src="${ctx}/static/WebAPI/HopeMap3DCtrlSdk/Ctrl.js"></script>
-	<script type="text/javascript" src="${ctx}/static/WebAPI/dragiframe.js"></script>
-	<script type="text/javascript"  ="${ctx}/static/WebAPI/jquery-3.2.0.slim.min.js"></script>
+	<link rel="StyleSheet" href="dtree.css" type="text/css" />
+	<script type="text/javascript" src="Andtree.js"></script>
+	<script type="text/javascript" src="ajax.js"></script>
+	<script type="text/javascript" src="json2.js"></script>
+    <script type="text/javascript" src="HopeMap3DCtrlSdk/Ctrl.js"></script>
+	<script type="text/javascript" src="dragiframe.js"></script>
+	<script type="text/javascript" src="jquery-3.2.0.slim.min.js"></script>
 	
 	<style>
 	   html,body{width:100%;height:100%;padding:0px;margin:0px;}
@@ -2929,9 +2926,9 @@
     
     <table style="width:100%; height:100%;margin:0px;padding:0px;" border="0" cellspacing="0" cellpadding="0" onclick="">
         <tr>
-			<%--<td id="LeftTD" style="width:200px;" valign="top">
+			<td id="LeftTD" style="width:200px;" valign="top">
                  <div id="treed2" class="dtree" style="width:200px;height:600px;"></div>
-			</td>--%>
+			</td>
 			
             <td id="MiddleTD" style="width:100%;height:100%">
 				<div id="Scene3D" class="dtree" style="width:100%;height:100%;z-index:1;">
@@ -2941,7 +2938,7 @@
 				</div>
             </td>
 			
-			<%--<td>
+			<td>
 				<div id="treed" class="dtree" style="width:202px;">
 					<script type="text/javascript">
 						
@@ -3141,12 +3138,12 @@
 						ToolTree.openAll();
 					</script> 
 				</div>
-            </td>--%>
+            </td>
         </tr>
     </table>
 	
 	<div style = "z-index:0;">
-    	<iframe id="Hope3DToolTip" name="Hope3DToolTip" src="${ctx}/static/WebAPI/r_AttributeShow.htm" style="display:none;position:absolute;
+    	<iframe id="Hope3DToolTip" name="Hope3DToolTip" src="r_AttributeShow.htm" style="display:none;position:absolute;
 	    left: 0px; top: 0px;height:200px ;width:320px;background-color: green;background:none;" scrolling="no" frameborder="0">
         </iframe>
     </div>

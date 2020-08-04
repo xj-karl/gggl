@@ -22,7 +22,8 @@ import java.util.Map;
 @Service("BisFwqyxxService")
 public class BisFwqyxxService {
 
-  @Resource private BisFwqyxxDao bisFwqyxxDao;
+  @Resource
+  private BisFwqyxxDao bisFwqyxxDao;
 
   public Map<String, Object> dataGrid(Map<String, Object> mapData) {
     List<Map<String, Object>> list = bisFwqyxxDao.dataGrid(mapData);

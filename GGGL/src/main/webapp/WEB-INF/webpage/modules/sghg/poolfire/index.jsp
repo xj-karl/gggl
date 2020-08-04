@@ -18,7 +18,9 @@
     </style>
 </head>
 <body>
-<div style="height:100%;width:100%;border:#ccc solid 1px;position:absolute;" id="poolfiredituContent"></div>
+<%--<div style="height:100%;width:100%;border:#ccc solid 1px;position:absolute;" id="poolfiredituContent"></div>--%>
+<iframe src="${ctx}/static/WebAPI/HopeMap3D-GIS%20Sample.jsp" style="height: 99%;width: 99%;" scrolling="no" frameborder="0">
+</iframe>
 <div id="poolfire_yjzy_win" style="display: none;width: 100%;height: 100%;">
 		<table id="poolfire_yjzy_dg"> </table>
 	</div>

@@ -152,7 +152,7 @@ public class LoginController{
 			}else{
 				Map<String,Object> mapData = new HashMap<>();
 				mapData.put("qyid", sessionuser.getQyid());
-				return "system/qyHome";
+				return "system/qyHome2";
 			}
 		}else{//其他类型用户首页
 			return "redirect:/syshome/map";

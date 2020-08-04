@@ -2926,11 +2926,11 @@
     
     <table style="width:100%; height:100%;margin:0px;padding:0px;" border="0" cellspacing="0" cellpadding="0" onclick="">
         <tr>
-			<%--<td id="LeftTD" style="width:200px;" valign="top">
+			<td id="LeftTD" style="width:200px;" valign="top">
                  <div id="treed2" class="dtree" style="width:200px;height:600px;"></div>
-			</td>--%>
+			</td>
 			
-            <td id="MiddleTD" style="width:100%;height:100%">
+            <td id="MiddleTD" style="dth:100%;height:100%">
 				<div id="Scene3D" class="dtree" style="width:100%;height:100%;z-index:1;">
 					<object id="Web3DCtrl" classid="clsid:A111D79A-2879-45C4-92BA-E72B23029EBB"
 						width="100%" height="100%" standby="正在加载请稍后...">
@@ -2938,7 +2938,7 @@
 				</div>
             </td>
 			
-			<%--<td>
+			<td>
 				<div id="treed" class="dtree" style="width:202px;">
 					<script type="text/javascript">
 						
@@ -3138,7 +3138,7 @@
 						ToolTree.openAll();
 					</script> 
 				</div>
-            </td>--%>
+            </td>
         </tr>
     </table>
 	
